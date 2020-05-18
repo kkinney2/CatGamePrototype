@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Daytime
+  m_Shader: {fileID: -6465566751694194690, guid: 0b516b3b22498ce4982e93334ddccc50,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Boolean_AE8C52F9: 1
+    - Boolean_B5406C2A: 1
+    - Vector1_2002E818: 0.4
+    - Vector1_290FB25D: 1
+    - Vector1_59DA56CC: 1
+    - Vector1_60F47034: 0.19
+    - Vector1_676EC9C9: 27.72
+    - Vector1_69F832B4: 4.04
+    - Vector1_A13AC045: 0
+    - Vector1_C4081C2F: 1
+    - Vector1_D9D4CED3: 0
+    m_Colors:
+    - Color_28D7B1F3: {r: 0.36470586, g: 0.9019607, b: 1, a: 1}
+    - Color_2E49DD75: {r: 0.16207075, g: 0.5954422, b: 0.881, a: 1}
