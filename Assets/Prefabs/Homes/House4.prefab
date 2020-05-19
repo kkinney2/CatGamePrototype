@@ -33,6 +33,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5210774077521506528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4833865681104823898}
+  - component: {fileID: 1563881317222992675}
+  m_Layer: 0
+  m_Name: Wall (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4833865681104823898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210774077521506528}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.45, y: 0, z: -6.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8224709482999983528}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1563881317222992675
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210774077521506528}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1864146399309720957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,11 +157,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: House (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4675938097795345650, guid: 8e9f733a784145543abd229eabe1b1ff,
+        type: 3}
+      propertyPath: m_Extents.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019752897214030935, guid: 8e9f733a784145543abd229eabe1b1ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690441738443171706, guid: 8e9f733a784145543abd229eabe1b1ff,
+        type: 3}
+      propertyPath: m_Extents.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956389461444374941, guid: 8e9f733a784145543abd229eabe1b1ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.91
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9f733a784145543abd229eabe1b1ff, type: 3}
 --- !u!4 &1959288597517119222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 211121485158728587, guid: 8e9f733a784145543abd229eabe1b1ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864146399309720957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8224709482999983528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7780758857079177429, guid: 8e9f733a784145543abd229eabe1b1ff,
     type: 3}
   m_PrefabInstance: {fileID: 1864146399309720957}
   m_PrefabAsset: {fileID: 0}
@@ -125,6 +198,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6133418108185334384}
     m_Modifications:
+    - target: {fileID: 186036203764774820, guid: 0e8a384d536be1642951cde06280a009,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1084779076669575888, guid: 0e8a384d536be1642951cde06280a009,
         type: 3}
       propertyPath: m_Name
@@ -200,6 +278,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6133418108185334384}
     m_Modifications:
+    - target: {fileID: 1876729424439239846, guid: 5097cca5ecbfb464f9169585030c94a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253630711793314819, guid: 5097cca5ecbfb464f9169585030c94a9,
+        type: 3}
+      propertyPath: m_Extents.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5546760186719204872, guid: 5097cca5ecbfb464f9169585030c94a9,
         type: 3}
       propertyPath: m_Name

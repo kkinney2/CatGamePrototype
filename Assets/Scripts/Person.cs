@@ -12,10 +12,15 @@ public class Person : MonoBehaviour
     private NavMeshAgent agent;
     private float timer;
 
+    private Vector3 homePosition;
+    private float speed;
+
     // Use this for initialization
     void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
+        speed = agent.speed;
+        homePosition = transform.position;
         timer = wanderTimer;
     }
 
@@ -23,13 +28,25 @@ public class Person : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
-        if (timer >= wanderTimer)
+        if (TimeManager.instance.DecimalTime >= 0.25f && TimeManager.instance.DecimalTime <= 0.75f)
         {
-            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-            agent.SetDestination(newPos);
-            timer = 0;
+            if (timer >= wanderTimer)
+            {
+                agent.speed = speed;
+                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+                agent.SetDestination(newPos);
+                timer = 0;
+            }
         }
+        else
+        {
+            if (Vector3.Distance(transform.position, homePosition) > 2f && agent.destination != homePosition)
+            {
+                agent.speed = speed * 2;
+                agent.SetDestination(homePosition);
+            }
+        }
+
     }
 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)

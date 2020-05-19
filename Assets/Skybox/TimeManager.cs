@@ -228,7 +228,7 @@ public class TimeManager : MonoBehaviour
 
     private void MoveClouds()
     {
-        RenderSettings.skybox.SetVector("_CloudsOffset", (Vector2)RenderSettings.skybox.GetVector("_CloudsOffset") + Time.deltaTime * cloudsSpeed);
+        RenderSettings.skybox.SetVector("_CloudsOffset", (Vector2)RenderSettings.skybox.GetVector("_CloudsOffset") + Time.deltaTime * cloudsSpeed / cycleInMinutes); // Dividing by cycleInMinutes scales speed based on timescale
     }
 
     private void SetFogColor()
@@ -279,6 +279,20 @@ public class TimeManager : MonoBehaviour
             InvokeTimeOfDayEvent();
             TODMessageCheck = timeOfDay;
         }
+    }
+
+    public string GetTimeOfDay()
+    {
+        float currentTime = decimalTime * 24f;
+        int hours = Mathf.FloorToInt(currentTime);
+
+        float unroundedMinutes = (currentTime - hours) * 60f;
+        int minutes = Mathf.FloorToInt(unroundedMinutes);
+
+        float unroundedSeconds = (unroundedMinutes - minutes) * 60f;
+        int seconds = Mathf.FloorToInt(unroundedSeconds);
+        //Debug.Log(currentTime + " " + unroundedMinutes + " " + unroundedSeconds);
+        return hours + "_" + minutes + "_" + seconds;
     }
 
     private void InvokeTimeOfDayEvent()
