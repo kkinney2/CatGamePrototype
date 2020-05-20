@@ -28,7 +28,7 @@ public class Person : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (TimeManager.instance.DecimalTime >= 0.25f && TimeManager.instance.DecimalTime <= 0.75f)
+        if (TimeManager.Instance.DecimalTime >= 0.25f && TimeManager.Instance.DecimalTime <= 0.75f)
         {
             if (timer >= wanderTimer)
             {

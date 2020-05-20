@@ -37,19 +37,19 @@ public class StreetLights : MonoBehaviour
 
     IEnumerator ToggleLights(bool enabled)
     {
-        yield return new WaitForSeconds(TimeManager.instance.cycleInMinutes * powerDelay);
+        yield return new WaitForSeconds(TimeManager.Instance.cycleInMinutes * powerDelay);
         foreach (Light light in GetComponentsInChildren<Light>())
         {
             light.enabled = enabled;
         }
 
-        yield return new WaitForSeconds(TimeManager.instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 10f);
+        yield return new WaitForSeconds(TimeManager.Instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 10f);
         foreach (Light light in GetComponentsInChildren<Light>())
         {
             light.enabled = !enabled;
         }
 
-        yield return new WaitForSeconds(TimeManager.instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 2f);
+        yield return new WaitForSeconds(TimeManager.Instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 2f);
         foreach (Light light in GetComponentsInChildren<Light>())
         {
             light.enabled = enabled;
@@ -58,7 +58,7 @@ public class StreetLights : MonoBehaviour
 
     IEnumerator ToggleEmission(bool enabled)
     {
-        yield return new WaitForSeconds(TimeManager.instance.cycleInMinutes / 24 / 60 / 60 * powerDelay);
+        yield return new WaitForSeconds(TimeManager.Instance.cycleInMinutes / 24 / 60 / 60 * powerDelay);
         foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
             foreach (Material material in renderer.materials)
@@ -74,7 +74,7 @@ public class StreetLights : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(TimeManager.instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 10f);
+        yield return new WaitForSeconds(TimeManager.Instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 10f);
         foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
             foreach (Material material in renderer.materials)
@@ -90,7 +90,7 @@ public class StreetLights : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(TimeManager.instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 2f);
+        yield return new WaitForSeconds(TimeManager.Instance.cycleInMinutes / 24 / 60 / 60 * powerDelay / 2f);
         foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
             foreach (Material material in renderer.materials)

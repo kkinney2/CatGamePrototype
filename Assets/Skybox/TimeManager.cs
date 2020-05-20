@@ -6,7 +6,7 @@ using UnityEngine.Events;
 [ExecuteInEditMode]
 public class TimeManager : MonoBehaviour
 {
-    public static TimeManager instance;
+    public static TimeManager Instance;
 
     [Header("Time")]
     public float cycleInMinutes = 1;
@@ -138,10 +138,12 @@ public class TimeManager : MonoBehaviour
 
     #endregion
 
+    public Calendar calendar = new Calendar();
+
 
     private void Awake()
     {
-        if (TimeManager.instance == null) instance = this;
+        if (TimeManager.Instance == null) Instance = this;
         else Debug.Log("Warning; Multiples instances found of {0}, only one instance of {0} allowed.", this);
 
     }
@@ -301,6 +303,7 @@ public class TimeManager : MonoBehaviour
         {
             case TimeOfDay.Night:
                 if (onMidnight != null) onMidnight.Invoke();
+                calendar.NextDay();
                 Debug.Log("OnMidnight");
                 break;
             case TimeOfDay.Morning:

@@ -92,7 +92,7 @@ Material:
     - Vector2_4A28F241: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_A95843FC: {r: -0.65, g: 0.41, b: -0.5, a: -0.71}
     - _CloudColor: {r: 1, g: 0.9114872, b: 0.8443396, a: 1}
-    - _CloudsOffset: {r: 142.61015, g: 142.0418, b: 0, a: 0}
+    - _CloudsOffset: {r: Infinity, g: Infinity, b: 0, a: 0}
     - _NightSkyColor1: {r: 0, g: 0.028218856, b: 0.44799998, a: 0}
     - _NightSkyColor2: {r: 0.019685196, g: 0, b: 0.24528301, a: 1}
     - _NightSkyColor3: {r: 0.020492276, g: 0, b: 0.14150941, a: 1}
