@@ -16,8 +16,6 @@ public class TimeManager : MonoBehaviour
     // Get time from other scripts by using DayNightCycle.DecimalTime.
     public float DecimalTime { get { return decimalTime; } private set { decimalTime = value; } }
 
-
-
     [Header("Sun")]
     #region Sun
     public Transform sun;
@@ -128,6 +126,7 @@ public class TimeManager : MonoBehaviour
     public UnityEvent onMorning;
     public UnityEvent onNoon;
     public UnityEvent onEvening;
+    public EventsOnHour[] onHours = new EventsOnHour[24];
 
     // enum value type data type
     private enum TimeOfDay { Night, Morning, Noon, Evening }
@@ -237,6 +236,7 @@ public class TimeManager : MonoBehaviour
     {
         RenderSettings.fogColor = fogColor.Evaluate(sunAngle);
     }
+
     private void SetFogDensity()
     {
         //RenderSettings.fogDensity = fogDensity.Evaluate(sunAngle);
@@ -258,15 +258,15 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTimeOfDay()
     {
-        if (decimalTime > 0.25 && decimalTime < 0.5f)
+        if (decimalTime > ConvertToDecimalTime(6) && decimalTime < ConvertToDecimalTime(12))
         {
             timeOfDay = TimeOfDay.Morning;
         }
-        else if (decimalTime > 0.5f && decimalTime < 0.75f)
+        else if (decimalTime > ConvertToDecimalTime(12) && decimalTime < ConvertToDecimalTime(18))
         {
             timeOfDay = TimeOfDay.Noon;
         }
-        else if (decimalTime > 0.75f)
+        else if (decimalTime > ConvertToDecimalTime(18))
         {
             timeOfDay = TimeOfDay.Evening;
         }
@@ -297,6 +297,16 @@ public class TimeManager : MonoBehaviour
         return hours + "_" + minutes + "_" + seconds;
     }
 
+    public float ConvertToDecimalTime(int hour)
+    {
+        return (1f / 24f) * hour;
+    }
+
+    public float ConvertToDecimalTime(int hour, int minutes)
+    {
+        return ConvertToDecimalTime(hour) + ((1f / 24f) / 60f) * minutes;
+    }
+
     private void InvokeTimeOfDayEvent()
     {
         switch (timeOfDay)
@@ -321,4 +331,22 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+}
+
+[System.Serializable]
+public struct EventsOnHour
+{
+    public string Name;
+    public UnityEvent onHour;
+    public EventsOn15Minute _15;
+    public EventsOn15Minute _30;
+    public EventsOn15Minute _45;
+
+}
+
+[System.Serializable]
+public struct EventsOn15Minute
+{
+    public string Name;
+    public UnityEvent on15Minute;
 }

@@ -76,7 +76,7 @@ Material:
     - _SkyIntensity: 1
     - _StarsDensity: 5
     - _StarsFadeout: 2
-    - _StarsIntensity: 0.505
+    - _StarsIntensity: 0.01
     - _SunExponent: 1
     - _SunIntensity: 5
     - _SunRadiusA: 0.03
@@ -97,6 +97,6 @@ Material:
     - _NightSkyColor2: {r: 0.019685196, g: 0, b: 0.24528301, a: 1}
     - _NightSkyColor3: {r: 0.020492276, g: 0, b: 0.14150941, a: 1}
     - _SkyColor1: {r: 0.41960785, g: 0.44705883, b: 1, a: 1}
-    - _SkyColor2: {r: 0.75, g: 0.3, b: 0.17, a: 1}
+    - _SkyColor2: {r: 0.17647934, g: 0.35294038, b: 0.7490108, a: 1}
     - _SkyColor3: {r: 0.755, g: 0.755, b: 0.755, a: 1}
-    - _StarsOffset: {r: 2, g: 0, b: 0, a: 0}
+    - _StarsOffset: {r: 4, g: 0, b: 0, a: 0}
