@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public InputMaster controls;
-
     private Animator animator;
     public CamControl camControl;
     public Rigidbody Rb { get; private set; }
@@ -36,7 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private int playerLayerMask;
 
-
+    public InputMaster controls;
+    private Vector2 playerInput;
 
     private void Awake()
     {
@@ -58,10 +57,8 @@ public class PlayerController : MonoBehaviour
 
         currentSetSpeed = moveSpeed;
 
-        controls = new InputMaster();
-        //controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
-        controls.Player.Run.performed += ctx => Run();
-        //controls.Player.Jump.performed += ctx => Jump();
+        controls = new InputMaster(); // Needs to use the same InputMaster (One Instance)
+        camControl.controls = controls;
     }
 
     private void OnEnable()
@@ -77,6 +74,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        controls.Player.Movement.performed += ctx => playerInput = ctx.ReadValue<Vector2>();
+        controls.Player.Run.performed += ctx => Run();
+        //controls.Player.Jump.performed += ctx => Jump();
+
         playerLayerMask = 1 << 8;
 
         // This would cast rays only against colliders in layer 8.
@@ -90,7 +92,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = Vector3.zero;
 
         // get vertical and horizontal movement input (controller and WASD/ Arrow Keys)
-        Vector2 playerInput = controls.Player.Movement.ReadValue<Vector2>();
+        //Vector2 playerInput = controls.Player.Movement.ReadValue<Vector2>();
 
         // base movement on camera and normalize
         moveDirection = CorrectMoveDirection(playerInput);
